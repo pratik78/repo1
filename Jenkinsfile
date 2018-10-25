@@ -25,6 +25,6 @@ pipeline {
   }
   environment {
     env = 'ci'
-    user = 'pratik'
+    USER = 'pratik'
   }
 }
