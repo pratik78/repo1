@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        git(url: 'git@github.com:pratik78/test.git', branch: 'master')
+        git(url: 'git@github.com:pratik78/test.git', branch: 'master', credentialsId: 'pratik78')
       }
     }
   }
