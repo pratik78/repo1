@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Kickoff') {
-      steps {
-        sh 'echo "I am $USER"'
+      parallel {
+        stage('Kickoff') {
+          steps {
+            sh 'echo "I am $USER"'
+            sh 'touch FileA'
+            fileExists 'FileA'
+          }
+        }
+        stage('Parallel_kickoff') {
+          steps {
+            echo 'This is parallel Job'
+          }
+        }
       }
     }
     stage('Build') {
